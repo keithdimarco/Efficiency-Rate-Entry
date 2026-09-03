@@ -103,6 +103,12 @@
     background:var(--card); color:var(--ink);
     font-family:'IBM Plex Sans',sans-serif;
   }
+  .setup-banner{
+    display:none; margin:10px 16px 0; padding:10px 12px;
+    background:#FBE9E7; border:1px solid #E3A99F; border-radius:var(--radius);
+    color:#8A2E22; font-size:12.5px; line-height:1.4;
+  }
+  .setup-banner.show{display:block;}
   .who-row{
     padding:0 16px 10px; display:flex; align-items:center; gap:8px;
   }
@@ -246,6 +252,13 @@
   </div>
 </header>
 
+<div class="setup-banner" id="setupBanner">
+  Not connected yet — paste your deployed Google Apps Script Web App URL
+  into the <code>APPS_SCRIPT_URL</code> constant near the top of this
+  file's &lt;script&gt; section, then re-save/re-open. Nothing will save
+  until that's set.
+</div>
+
 <div class="who-row">
   <label for="initials">Entering as</label>
   <input id="initials" maxlength="6" placeholder="INIT" />
@@ -295,7 +308,6 @@
 <script>
 const ROSTER = [{"row":3,"emp":"101","name":"David Morgan(C-3)","dept":"Pippin Rd","shop":"Machining","shift":3},{"row":4,"emp":"1051","name":"Shawn Hall(C-1)","dept":"Pippin Rd","shop":"Weld","shift":1},{"row":5,"emp":"1065","name":"Hugo Vega Servin(N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":6,"emp":"1076","name":"Jared Meiner (C-3)","dept":"Pippin Rd","shop":"Brakes","shift":3},{"row":7,"emp":"1081","name":"Jason Fraasman(N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":8,"emp":"1088","name":"Allan Sherman(C-1)","dept":"Pippin Rd","shop":"Weld","shift":1},{"row":9,"emp":"135","name":"Chanan Jaakobovitch(C-1)","dept":"Pippin Rd","shop":"Machining","shift":1},{"row":10,"emp":"168","name":"Daniel Lyons(C-1)","dept":"Pippin Rd","shop":"Laser","shift":1},{"row":11,"emp":"170","name":"Greg Yuellig(C-1)","dept":"Pippin Rd","shop":"Tool","shift":1},{"row":12,"emp":"179","name":"James Lovell (C-1)","dept":"Pippin Rd","shop":"Brakes","shift":1},{"row":13,"emp":"183","name":"Jeff Isaia(C-1)","dept":"Pippin Rd","shop":"Gen Fab","shift":1},{"row":14,"emp":"2000","name":"Charles Fraasman(C-1)","dept":"Pippin Rd","shop":"Weld","shift":1},{"row":15,"emp":"2027","name":"Alexander Renken(C-1)","dept":"Pippin Rd","shop":"QC","shift":1},{"row":16,"emp":"2039","name":"Stephen Patterson (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":17,"emp":"2071","name":"Gerald Thomas(C-3)","dept":"Pippin Rd","shop":"Laser","shift":3},{"row":18,"emp":"260","name":"Bill Mccarthy(C-1)","dept":"Pippin Rd","shop":"Admin","shift":1},{"row":19,"emp":"261","name":"Greg Barge(C-1)","dept":"Pippin Rd","shop":"Shipping","shift":1},{"row":20,"emp":"3024","name":"Danielle Mcferren (C-1)","dept":"Admin","shop":"Admin","shift":1},{"row":21,"emp":"4081","name":"Evin Carr(C-1)","dept":"Pippin Rd","shop":"Machining","shift":1},{"row":22,"emp":"4082","name":"Blair Stewart(N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":23,"emp":"4091","name":"Tyler Gerwe (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":24,"emp":"410","name":"Matt Rusche(C-1)","dept":"Pippin Rd","shop":"Machining","shift":1},{"row":25,"emp":"4114","name":"Aaron Borley (C-1)","dept":"Pippin Rd","shop":"Powder","shift":1},{"row":26,"emp":"436","name":"Enrique Trinidad(N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":27,"emp":"441","name":"Ronald Roman(C-3)","dept":"Pippin Rd","shop":"Admin","shift":3},{"row":28,"emp":"486","name":"Justin Keinath(N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":29,"emp":"5632","name":"Brian Waltner(N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":30,"emp":"5671","name":"Charles Stroup(C-1)","dept":"Pippin Rd","shop":"Laser","shift":1},{"row":31,"emp":"5708","name":"Garret Conover(N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":32,"emp":"5880","name":"Andrew Begley(N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":33,"emp":"6025","name":"Brandon Broshear (C-1)","dept":"Pippin Rd","shop":"Brakes","shift":1},{"row":34,"emp":"6120","name":"Sylvester Ntiamoah (C-3)","dept":"Pippin Rd","shop":"Powder","shift":3},{"row":35,"emp":"6121","name":"Allison Mynhier (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":36,"emp":"6123","name":"Tyrone Gilbert (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":37,"emp":"6134","name":"Boubou Diallo (C-3)","dept":"Pippin Rd","shop":"Powder","shift":3},{"row":38,"emp":"6162","name":"Tommy Brown (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":39,"emp":"6191","name":"James Schmid(C-1)","dept":"Pippin Rd","shop":"Maintenance","shift":1},{"row":40,"emp":"6215","name":"Max Laymaster (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":41,"emp":"6247","name":"Max Fawcett (C-3)","dept":"Pippin Rd","shop":"Machining","shift":3},{"row":42,"emp":"6287","name":"Tim Young (C-1)","dept":"Pippin Rd","shop":"Shipping","shift":1},{"row":43,"emp":"6353","name":"Vernon Clark (C-1)","dept":"Pippin Rd","shop":"Shipping","shift":1},{"row":44,"emp":"6389","name":"Jonathan Thomas (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":45,"emp":"6390","name":"Sara Brewer (C-1)","dept":"Admin","shop":"Admin","shift":1},{"row":46,"emp":"6424","name":"Kathy Gambrel (C-1)","dept":"Admin","shop":"Admin","shift":1},{"row":47,"emp":"6440","name":"Burnett North (C-1)","dept":"Pippin Rd","shop":"Brakes","shift":1},{"row":48,"emp":"6452","name":"Ronald Mckenzie (C-1)","dept":"Pippin Rd","shop":"Gen Fab","shift":1},{"row":49,"emp":"6477","name":"Justin Bivens (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":50,"emp":"6497","name":"Curtis King (C-1)","dept":"Pippin Rd","shop":"Brakes","shift":1},{"row":51,"emp":"6528","name":"Jesse Austin (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":52,"emp":"6530","name":"Robert Wilson (C-1)","dept":"Pippin Rd","shop":"Machining","shift":1},{"row":53,"emp":"6536","name":"Justin Kornhaus (C-1)","dept":"Pippin Rd","shop":"QC","shift":1},{"row":54,"emp":"6540","name":"Alyssa Morgan (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":55,"emp":"6542","name":"Christopher Wilhelm (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":56,"emp":"6551","name":"Ben Bullard (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":57,"emp":"6553","name":"Samuel Carroll (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":58,"emp":"6556","name":"Steven Pigman (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":59,"emp":"6560","name":"Michael Bridges (C-3)","dept":"Pippin Rd","shop":"Laser","shift":3},{"row":60,"emp":"6568","name":"Devan Stedman (C-1)","dept":"Pippin Rd","shop":"Gen Fab","shift":1},{"row":61,"emp":"6574","name":"Michael Martini (C-1)","dept":"Pippin Rd","shop":"Gen Fab","shift":1},{"row":62,"emp":"6580","name":"Kalun Loveless (C-3)","dept":"Pippin Rd","shop":"Gen Fab","shift":3},{"row":63,"emp":"6582","name":"Brian Forschbach (C-1)","dept":"Pippin Rd","shop":"Machining","shift":1},{"row":64,"emp":"6612","name":"Justin Schwartz (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":65,"emp":"6615","name":"Mari Patterson (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":66,"emp":"6627","name":"Shawna Lykins (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":67,"emp":"6628","name":"David Beckham (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":68,"emp":"6635","name":"Randall Bennett (C-1)","dept":"Pippin Rd","shop":"Brakes","shift":1},{"row":69,"emp":"6637","name":"Patrick Klawitter (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":70,"emp":"6640","name":"Wesley Williams (C-3)","dept":"Pippin Rd","shop":"Laser","shift":3},{"row":71,"emp":"6672","name":"Paul Gomez (C-1)","dept":"Pippin Rd","shop":"Powder","shift":1},{"row":72,"emp":"6682","name":"Luke Yeboah (C-3)","dept":"Pippin Rd","shop":"Machining","shift":3},{"row":73,"emp":"6683","name":"Barry Robertson (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":74,"emp":"6685","name":"Chris Gleason (C-3)","dept":"Pippin Rd","shop":"Powder","shift":3},{"row":75,"emp":"6687","name":"Alvis Parnell (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":76,"emp":"6690","name":"Joseph Robinson (C-1)","dept":"Pippin Rd","shop":"Laser","shift":1},{"row":77,"emp":"6692","name":"Randall Master (C-1)","dept":"Pippin Rd","shop":"Powder","shift":1},{"row":78,"emp":"6693","name":"Garrett Renner (C-1)","dept":"Pippin Rd","shop":"Powder","shift":1},{"row":79,"emp":"6694","name":"Maxwell Wyatt (C-1)","dept":"Pippin Rd","shop":"Machining","shift":1},{"row":80,"emp":"6695","name":"Denver Landwehr (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":81,"emp":"6699","name":"Richard Adu-Poku (C-3)","dept":"Pippin Rd","shop":"Powder","shift":3},{"row":82,"emp":"6702","name":"Cierra Bishop (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":83,"emp":"6703","name":"Lashawn Woods (C-3)","dept":"Pippin Rd","shop":"Machining","shift":3},{"row":84,"emp":"6704","name":"Paige Stark (C-1)","dept":"Pippin Rd","shop":"Machining","shift":1}];
 
-
 // ---------- state ----------
 let currentDate = todayStr();
 let entries = {};          // { empId: {rate, actual, comments, enteredBy, updatedAt} }
@@ -313,7 +325,13 @@ function todayStr(){
   return local.toISOString().slice(0,10);
 }
 
-function storageKey(dateStr){ return 'entries-' + dateStr; }
+// ---------- backend config ----------
+// Paste the Web App URL you get after deploying AppsScript-Code.gs here:
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxX_94sdKzDCQEr1n4LnAYVrMGQjvVVs4viQJK6ys6LK-VYc6lZYf4S-k3U1-3qOYD1/exec';
+
+function backendConfigured(){
+  return APPS_SCRIPT_URL && !APPS_SCRIPT_URL.startsWith('PASTE_YOUR');
+}
 
 // ---------- init ----------
 const dateInput = document.getElementById('dateInput');
@@ -343,50 +361,56 @@ shiftVals.forEach(s => {
   shiftFilter.appendChild(opt);
 });
 
-async function loadInitials(){
-  try{
-    const res = await window.storage.get('supervisor-initials', false);
-    if(res && res.value) document.getElementById('initials').value = res.value;
-  }catch(e){ /* not set yet */ }
-}
-document.getElementById('initials').addEventListener('change', async (e)=>{
-  const v = e.target.value.toUpperCase().trim();
-  e.target.value = v;
-  try{ await window.storage.set('supervisor-initials', v, false); }catch(err){}
+// Initials are session-only — supervisors type them once per visit;
+// they're saved alongside each entry.
+document.getElementById('initials').addEventListener('change', (e)=>{
+  e.target.value = e.target.value.toUpperCase().trim();
 });
 
 async function loadEntries(dateStr, {silent}={}){
-  try{
-    const res = await window.storage.get(storageKey(dateStr), true);
-    entries = (res && res.value) ? JSON.parse(res.value) : {};
-  }catch(e){
+  if(!backendConfigured()){
     entries = {};
+    renderRoster(); renderExport();
+    return;
+  }
+  try{
+    const url = APPS_SCRIPT_URL + '?action=get&date=' + encodeURIComponent(dateStr);
+    const res = await fetch(url);
+    const data = await res.json();
+    entries = (data && data.ok) ? (data.entries || {}) : {};
+  }catch(e){
+    if(!silent) console.error('loadEntries failed', e);
+    // keep whatever we had before rather than wiping the view on a blip
   }
   renderRoster();
   renderExport();
 }
 
 async function saveEntry(empId, data){
-  // read-modify-write against latest shared state to minimize clobbering
-  let latest = {};
-  try{
-    const res = await window.storage.get(storageKey(currentDate), true);
-    latest = (res && res.value) ? JSON.parse(res.value) : {};
-  }catch(e){ latest = {}; }
-  latest[empId] = data;
-  await window.storage.set(storageKey(currentDate), JSON.stringify(latest), true);
-  entries = latest;
+  if(!backendConfigured()) throw new Error('Backend not configured');
+  const params = new URLSearchParams({
+    action: 'save',
+    date: currentDate,
+    empId: empId,
+    name: data.name || '',
+    rate: data.rate || '',
+    actual: data.actual || '',
+    comments: data.comments || '',
+    enteredBy: data.enteredBy || ''
+  });
+  const res = await fetch(APPS_SCRIPT_URL + '?' + params.toString());
+  const result = await res.json();
+  if(!result || !result.ok) throw new Error((result && result.error) || 'Save failed');
+  entries[empId] = data;
 }
 
 async function clearEntry(empId){
-  let latest = {};
-  try{
-    const res = await window.storage.get(storageKey(currentDate), true);
-    latest = (res && res.value) ? JSON.parse(res.value) : {};
-  }catch(e){ latest = {}; }
-  delete latest[empId];
-  await window.storage.set(storageKey(currentDate), JSON.stringify(latest), true);
-  entries = latest;
+  if(!backendConfigured()) throw new Error('Backend not configured');
+  const params = new URLSearchParams({ action: 'clear', date: currentDate, empId: empId });
+  const res = await fetch(APPS_SCRIPT_URL + '?' + params.toString());
+  const result = await res.json();
+  if(!result || !result.ok) throw new Error((result && result.error) || 'Clear failed');
+  delete entries[empId];
 }
 
 // ---------- rendering ----------
@@ -484,134 +508,23 @@ async function doSave(empId){
   const actual = document.getElementById('actual-'+empId).value.trim();
   const comments = document.getElementById('comments-'+empId).value.trim();
   const initials = document.getElementById('initials').value.trim() || '—';
+  const empName = (ROSTER.find(r => r.emp === empId) || {}).name || '';
   const flash = document.getElementById('flash-'+empId);
   flash.textContent = 'Saving…';
+  if(!backendConfigured()){
+    flash.textContent = 'Not connected — the app\'s backend URL isn\'t set up yet.';
+    return;
+  }
   try{
-    await saveEntry(empId, {rate, actual, comments, enteredBy: initials, updatedAt: new Date().toISOString()});
+    await saveEntry(empId, {name: empName, rate, actual, comments, enteredBy: initials, updatedAt: new Date().toISOString()});
     openEmpId = null;
     renderRoster();
     renderExport();
   }catch(e){
-    flash.textContent = 'Save failed — try again';
+    flash.textContent = 'Save failed — check your connection and try again.';
   }
 }
 
 async function doClear(empId){
   if(!confirm('Clear this entry?')) return;
-  await clearEntry(empId);
-  openEmpId = null;
-  renderRoster();
-  renderExport();
-}
-
-function renderExport(){
-  const rows = ROSTER
-    .filter(r => entries[r.emp])
-    .map(r => ({r, e: entries[r.emp]}));
-  document.getElementById('exportCount').textContent = rows.length;
-  document.getElementById('exportBody').innerHTML = rows.map(({r,e})=>{
-    return '<tr><td class="num">'+r.emp+'</td><td>'+esc(r.name)+'</td>' +
-      '<td class="num">'+esc(e.rate||'')+'</td><td class="num">'+esc(e.actual||'')+'</td>' +
-      '<td>'+esc(e.comments||'')+'</td><td class="num">'+esc(e.enteredBy||'')+'</td></tr>';
-  }).join('') || '<tr><td colspan="6" style="color:#5B636B;">No entries yet for this date.</td></tr>';
-}
-
-function esc(s){
-  return String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-}
-function escAttr(s){ return esc(s); }
-
-// ---------- events ----------
-document.getElementById('searchInput').addEventListener('input', e=>{
-  searchTerm = e.target.value; renderRoster();
-});
-shopFilter.addEventListener('change', e=>{
-  shopFilterVal = e.target.value; renderRoster();
-});
-deptFilter.addEventListener('change', e=>{
-  deptFilterVal = e.target.value; renderRoster();
-});
-shiftFilter.addEventListener('change', e=>{
-  shiftFilterVal = e.target.value; renderRoster();
-});
-document.getElementById('prevDay').addEventListener('click', ()=> shiftDate(-1));
-document.getElementById('nextDay').addEventListener('click', ()=> shiftDate(1));
-dateInput.addEventListener('change', e=>{
-  currentDate = e.target.value;
-  openEmpId = null;
-  loadEntries(currentDate);
-});
-function shiftDate(delta){
-  const d = new Date(currentDate + 'T00:00:00');
-  d.setDate(d.getDate()+delta);
-  currentDate = d.toISOString().slice(0,10);
-  dateInput.value = currentDate;
-  openEmpId = null;
-  loadEntries(currentDate);
-}
-
-document.querySelectorAll('.tab-btn').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    const tab = btn.dataset.tab;
-    document.getElementById('rosterControls').style.display = tab==='roster' ? 'flex':'none';
-    document.getElementById('rosterList').style.display = tab==='roster' ? 'block':'none';
-    document.getElementById('exportView').style.display = tab==='export' ? 'block':'none';
-    if(tab==='export') renderExport();
-  });
-});
-
-document.getElementById('copyBtn').addEventListener('click', async ()=>{
-  const rows = ROSTER.filter(r => entries[r.emp]).map(r=>{
-    const e = entries[r.emp];
-    return [r.emp, r.name, e.rate||'', e.actual||'', (e.comments||'').replace(/\t/g,' '), e.enteredBy||''].join('\t');
-  });
-  const header = ['Emp#','Name','Current Job Rate','Actual Rate','Comments','Entered By'].join('\t');
-  const text = 'Date: ' + currentDate + '\n' + header + '\n' + rows.join('\n');
-  try{
-    await navigator.clipboard.writeText(text);
-    showToast('Copied — paste into your Claude chat');
-  }catch(e){
-    const ta = document.createElement('textarea');
-    ta.value = text; document.body.appendChild(ta); ta.select();
-    document.execCommand('copy'); document.body.removeChild(ta);
-    showToast('Copied — paste into your Claude chat');
-  }
-});
-
-document.getElementById('csvBtn').addEventListener('click', ()=>{
-  const rows = ROSTER.filter(r => entries[r.emp]).map(r=>{
-    const e = entries[r.emp];
-    const esc = v => '"' + String(v==null?'':v).replace(/"/g,'""') + '"';
-    return [r.emp, r.name, e.rate||'', e.actual||'', e.comments||'', e.enteredBy||''].map(esc).join(',');
-  });
-  const header = ['Emp#','Name','Current Job Rate','Actual Rate','Comments','Entered By'].map(v=>'"'+v+'"').join(',');
-  const csv = header + '\n' + rows.join('\n');
-  const blob = new Blob([csv], {type:'text/csv'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url; a.download = 'rate-entries-' + currentDate + '.csv';
-  document.body.appendChild(a); a.click(); document.body.removeChild(a);
-  URL.revokeObjectURL(url);
-});
-
-let toastTimer;
-function showToast(msg){
-  const t = document.getElementById('copyToast');
-  t.textContent = msg; t.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(()=>t.classList.remove('show'), 2200);
-}
-
-// ---------- boot ----------
-(async function boot(){
-  await loadInitials();
-  await loadEntries(currentDate);
-  pollTimer = setInterval(()=>{
-    if(openEmpId === null) loadEntries(currentDate, {silent:true});
-  }, 20000);
-})();
-</script>
-</body>
-</html>
+  const flash
