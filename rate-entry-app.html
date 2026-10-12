@@ -306,7 +306,768 @@
 <div class="copy-toast" id="copyToast">Copied</div>
 
 <script>
-const ROSTER = [{"row":3,"emp":"101","name":"David Morgan(C-3)","dept":"Pippin Rd","shop":"Machining","shift":3},{"row":4,"emp":"1051","name":"Shawn Hall(C-1)","dept":"Pippin Rd","shop":"Weld","shift":1},{"row":5,"emp":"1065","name":"Hugo Vega Servin(N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":6,"emp":"1076","name":"Jared Meiner (C-3)","dept":"Pippin Rd","shop":"Brakes","shift":3},{"row":7,"emp":"1081","name":"Jason Fraasman(N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":8,"emp":"1088","name":"Allan Sherman(C-1)","dept":"Pippin Rd","shop":"Weld","shift":1},{"row":9,"emp":"135","name":"Chanan Jaakobovitch(C-1)","dept":"Pippin Rd","shop":"Machining","shift":1},{"row":10,"emp":"168","name":"Daniel Lyons(C-1)","dept":"Pippin Rd","shop":"Laser","shift":1},{"row":11,"emp":"170","name":"Greg Yuellig(C-1)","dept":"Pippin Rd","shop":"Tool","shift":1},{"row":12,"emp":"179","name":"James Lovell (C-1)","dept":"Pippin Rd","shop":"Brakes","shift":1},{"row":13,"emp":"183","name":"Jeff Isaia(C-1)","dept":"Pippin Rd","shop":"Gen Fab","shift":1},{"row":14,"emp":"2000","name":"Charles Fraasman(C-1)","dept":"Pippin Rd","shop":"Weld","shift":1},{"row":15,"emp":"2027","name":"Alexander Renken(C-1)","dept":"Pippin Rd","shop":"QC","shift":1},{"row":16,"emp":"2039","name":"Stephen Patterson (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":17,"emp":"2071","name":"Gerald Thomas(C-3)","dept":"Pippin Rd","shop":"Laser","shift":3},{"row":18,"emp":"260","name":"Bill Mccarthy(C-1)","dept":"Pippin Rd","shop":"Admin","shift":1},{"row":19,"emp":"261","name":"Greg Barge(C-1)","dept":"Pippin Rd","shop":"Shipping","shift":1},{"row":20,"emp":"3024","name":"Danielle Mcferren (C-1)","dept":"Admin","shop":"Admin","shift":1},{"row":21,"emp":"4081","name":"Evin Carr(C-1)","dept":"Pippin Rd","shop":"Machining","shift":1},{"row":22,"emp":"4082","name":"Blair Stewart(N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":23,"emp":"4091","name":"Tyler Gerwe (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":24,"emp":"410","name":"Matt Rusche(C-1)","dept":"Pippin Rd","shop":"Machining","shift":1},{"row":25,"emp":"4114","name":"Aaron Borley (C-1)","dept":"Pippin Rd","shop":"Powder","shift":1},{"row":26,"emp":"436","name":"Enrique Trinidad(N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":27,"emp":"441","name":"Ronald Roman(C-3)","dept":"Pippin Rd","shop":"Admin","shift":3},{"row":28,"emp":"486","name":"Justin Keinath(N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":29,"emp":"5632","name":"Brian Waltner(N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":30,"emp":"5671","name":"Charles Stroup(C-1)","dept":"Pippin Rd","shop":"Laser","shift":1},{"row":31,"emp":"5708","name":"Garret Conover(N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":32,"emp":"5880","name":"Andrew Begley(N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":33,"emp":"6025","name":"Brandon Broshear (C-1)","dept":"Pippin Rd","shop":"Brakes","shift":1},{"row":34,"emp":"6120","name":"Sylvester Ntiamoah (C-3)","dept":"Pippin Rd","shop":"Powder","shift":3},{"row":35,"emp":"6121","name":"Allison Mynhier (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":36,"emp":"6123","name":"Tyrone Gilbert (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":37,"emp":"6134","name":"Boubou Diallo (C-3)","dept":"Pippin Rd","shop":"Powder","shift":3},{"row":38,"emp":"6162","name":"Tommy Brown (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":39,"emp":"6191","name":"James Schmid(C-1)","dept":"Pippin Rd","shop":"Maintenance","shift":1},{"row":40,"emp":"6215","name":"Max Laymaster (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":41,"emp":"6247","name":"Max Fawcett (C-3)","dept":"Pippin Rd","shop":"Machining","shift":3},{"row":42,"emp":"6287","name":"Tim Young (C-1)","dept":"Pippin Rd","shop":"Shipping","shift":1},{"row":43,"emp":"6353","name":"Vernon Clark (C-1)","dept":"Pippin Rd","shop":"Shipping","shift":1},{"row":44,"emp":"6389","name":"Jonathan Thomas (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":45,"emp":"6390","name":"Sara Brewer (C-1)","dept":"Admin","shop":"Admin","shift":1},{"row":46,"emp":"6424","name":"Kathy Gambrel (C-1)","dept":"Admin","shop":"Admin","shift":1},{"row":47,"emp":"6440","name":"Burnett North (C-1)","dept":"Pippin Rd","shop":"Brakes","shift":1},{"row":48,"emp":"6452","name":"Ronald Mckenzie (C-1)","dept":"Pippin Rd","shop":"Gen Fab","shift":1},{"row":49,"emp":"6477","name":"Justin Bivens (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":50,"emp":"6497","name":"Curtis King (C-1)","dept":"Pippin Rd","shop":"Brakes","shift":1},{"row":51,"emp":"6528","name":"Jesse Austin (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":52,"emp":"6530","name":"Robert Wilson (C-1)","dept":"Pippin Rd","shop":"Machining","shift":1},{"row":53,"emp":"6536","name":"Justin Kornhaus (C-1)","dept":"Pippin Rd","shop":"QC","shift":1},{"row":54,"emp":"6540","name":"Alyssa Morgan (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":55,"emp":"6542","name":"Christopher Wilhelm (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":56,"emp":"6551","name":"Ben Bullard (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":57,"emp":"6553","name":"Samuel Carroll (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":58,"emp":"6556","name":"Steven Pigman (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":59,"emp":"6560","name":"Michael Bridges (C-3)","dept":"Pippin Rd","shop":"Laser","shift":3},{"row":60,"emp":"6568","name":"Devan Stedman (C-1)","dept":"Pippin Rd","shop":"Gen Fab","shift":1},{"row":61,"emp":"6574","name":"Michael Martini (C-1)","dept":"Pippin Rd","shop":"Gen Fab","shift":1},{"row":62,"emp":"6580","name":"Kalun Loveless (C-3)","dept":"Pippin Rd","shop":"Gen Fab","shift":3},{"row":63,"emp":"6582","name":"Brian Forschbach (C-1)","dept":"Pippin Rd","shop":"Machining","shift":1},{"row":64,"emp":"6612","name":"Justin Schwartz (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":65,"emp":"6615","name":"Mari Patterson (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":66,"emp":"6627","name":"Shawna Lykins (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":67,"emp":"6628","name":"David Beckham (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":68,"emp":"6635","name":"Randall Bennett (C-1)","dept":"Pippin Rd","shop":"Brakes","shift":1},{"row":69,"emp":"6637","name":"Patrick Klawitter (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":70,"emp":"6640","name":"Wesley Williams (C-3)","dept":"Pippin Rd","shop":"Laser","shift":3},{"row":71,"emp":"6672","name":"Paul Gomez (C-1)","dept":"Pippin Rd","shop":"Powder","shift":1},{"row":72,"emp":"6682","name":"Luke Yeboah (C-3)","dept":"Pippin Rd","shop":"Machining","shift":3},{"row":73,"emp":"6683","name":"Barry Robertson (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":74,"emp":"6685","name":"Chris Gleason (C-3)","dept":"Pippin Rd","shop":"Powder","shift":3},{"row":75,"emp":"6687","name":"Alvis Parnell (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":76,"emp":"6690","name":"Joseph Robinson (C-1)","dept":"Pippin Rd","shop":"Laser","shift":1},{"row":77,"emp":"6692","name":"Randall Master (C-1)","dept":"Pippin Rd","shop":"Powder","shift":1},{"row":78,"emp":"6693","name":"Garrett Renner (C-1)","dept":"Pippin Rd","shop":"Powder","shift":1},{"row":79,"emp":"6694","name":"Maxwell Wyatt (C-1)","dept":"Pippin Rd","shop":"Machining","shift":1},{"row":80,"emp":"6695","name":"Denver Landwehr (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":81,"emp":"6699","name":"Richard Adu-Poku (C-3)","dept":"Pippin Rd","shop":"Powder","shift":3},{"row":82,"emp":"6702","name":"Cierra Bishop (N-1)","dept":"North Facility","shop":"Unassigned","shift":null},{"row":83,"emp":"6703","name":"Lashawn Woods (C-3)","dept":"Pippin Rd","shop":"Machining","shift":3},{"row":84,"emp":"6704","name":"Paige Stark (C-1)","dept":"Pippin Rd","shop":"Machining","shift":1}];
+const ROSTER = [
+  {
+    "row": 2,
+    "emp": "101",
+    "name": "DAVID MORGAN(C-3)",
+    "dept": "Pippin Rd",
+    "shop": "Machining",
+    "shift": 3
+  },
+  {
+    "row": 4,
+    "emp": "1051",
+    "name": "SHAWN HALL(C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Weld",
+    "shift": 1
+  },
+  {
+    "row": 5,
+    "emp": "1065",
+    "name": "HUGO VEGA SERVIN(N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 6,
+    "emp": "1076",
+    "name": "JARED MEINER (C-3)",
+    "dept": "Pippin Rd",
+    "shop": "Brakes",
+    "shift": 3
+  },
+  {
+    "row": 7,
+    "emp": "1081",
+    "name": "JASON FRAASMAN(N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 8,
+    "emp": "1088",
+    "name": "ALLAN SHERMAN(C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Weld",
+    "shift": 1
+  },
+  {
+    "row": 9,
+    "emp": "1094",
+    "name": "JEFF HISLE(C-1)",
+    "dept": "Admin",
+    "shop": "Admin",
+    "shift": 1
+  },
+  {
+    "row": 10,
+    "emp": "110",
+    "name": "RODNEY CHILDERS(C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Machining",
+    "shift": 1
+  },
+  {
+    "row": 12,
+    "emp": "135",
+    "name": "CHANAN JAAKOBOVITCH(C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Machining",
+    "shift": 1
+  },
+  {
+    "row": 14,
+    "emp": "168",
+    "name": "DANIEL LYONS(C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Laser",
+    "shift": 1
+  },
+  {
+    "row": 15,
+    "emp": "170",
+    "name": "GREG YUELLIG(C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Tool",
+    "shift": 1
+  },
+  {
+    "row": 16,
+    "emp": "183",
+    "name": "JEFF ISAIA(C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Gen Fab",
+    "shift": 1
+  },
+  {
+    "row": 17,
+    "emp": "2000",
+    "name": "CHARLES FRAASMAN(C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Weld",
+    "shift": 1
+  },
+  {
+    "row": 19,
+    "emp": "2027",
+    "name": "ALEXANDER RENKEN(C-1)",
+    "dept": "Pippin Rd",
+    "shop": "QC",
+    "shift": 1
+  },
+  {
+    "row": 20,
+    "emp": "2039",
+    "name": "STEPHEN PATTERSON (N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 21,
+    "emp": "2045",
+    "name": "PHILLIP WEHRLEY(N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 22,
+    "emp": "2071",
+    "name": "GERALD THOMAS(C-3)",
+    "dept": "Pippin Rd",
+    "shop": "Laser",
+    "shift": 3
+  },
+  {
+    "row": 23,
+    "emp": "260",
+    "name": "BILL MCCARTHY(C-1)",
+    "dept": "Admin",
+    "shop": "Admin",
+    "shift": 1
+  },
+  {
+    "row": 24,
+    "emp": "261",
+    "name": "GREG BARGE(C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Shipping",
+    "shift": 1
+  },
+  {
+    "row": 26,
+    "emp": "3024",
+    "name": "DANIELLE MCFERREN (C-1)",
+    "dept": "Admin",
+    "shop": "Admin",
+    "shift": 1
+  },
+  {
+    "row": 28,
+    "emp": "4081",
+    "name": "EVIN CARR(C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Machining",
+    "shift": 1
+  },
+  {
+    "row": 29,
+    "emp": "4082",
+    "name": "BLAIR STEWART(N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 30,
+    "emp": "4091",
+    "name": "TYLER GERWE (N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 31,
+    "emp": "410",
+    "name": "MATT RUSCHE(C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Machining",
+    "shift": 1
+  },
+  {
+    "row": 32,
+    "emp": "4107",
+    "name": "RUSSELL HESS (N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 33,
+    "emp": "4114",
+    "name": "AARON BORLEY (C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Powder",
+    "shift": 1
+  },
+  {
+    "row": 34,
+    "emp": "436",
+    "name": "ENRIQUE TRINIDAD(N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 35,
+    "emp": "441",
+    "name": "RONALD ROMAN(C-3)",
+    "dept": "Pippin Rd",
+    "shop": "Admin",
+    "shift": 3
+  },
+  {
+    "row": 36,
+    "emp": "486",
+    "name": "JUSTIN KEINATH(N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 37,
+    "emp": "5541",
+    "name": "JAMES OWUSU(C-3)",
+    "dept": "Pippin Rd",
+    "shop": "Weld",
+    "shift": 3
+  },
+  {
+    "row": 38,
+    "emp": "5575",
+    "name": "SHAWN HICKS (N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 39,
+    "emp": "5632",
+    "name": "BRIAN WALTNER(N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 41,
+    "emp": "5671",
+    "name": "CHARLES STROUP(C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Laser",
+    "shift": 1
+  },
+  {
+    "row": 43,
+    "emp": "5708",
+    "name": "GARRET CONOVER(N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 44,
+    "emp": "5880",
+    "name": "ANDREW BEGLEY(N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 112,
+    "emp": "6025",
+    "name": "BRANDON BROSHEAR (C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Brakes",
+    "shift": 1
+  },
+  {
+    "row": 46,
+    "emp": "6121",
+    "name": "ALLISON MYNHIER (N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 47,
+    "emp": "6123",
+    "name": "TYRONE GILBERT (N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 48,
+    "emp": "6127",
+    "name": "DENNIS NOBLE (N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 49,
+    "emp": "6162",
+    "name": "TOMMY BROWN (N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 50,
+    "emp": "6191",
+    "name": "JAMES SCHMID(C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Maintenance",
+    "shift": 1
+  },
+  {
+    "row": 51,
+    "emp": "6215",
+    "name": "MAX LAYMASTER (N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 52,
+    "emp": "6216",
+    "name": "CHRIS WILLIAMS (N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 54,
+    "emp": "6287",
+    "name": "TIM YOUNG (C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Shipping",
+    "shift": 1
+  },
+  {
+    "row": 140,
+    "emp": "6353",
+    "name": "VERNON CLARK (C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Shipping",
+    "shift": 1
+  },
+  {
+    "row": 57,
+    "emp": "6389",
+    "name": "JONATHAN THOMAS (N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 58,
+    "emp": "6390",
+    "name": "SARA BREWER (C-1)",
+    "dept": "Admin",
+    "shop": "Admin",
+    "shift": 1
+  },
+  {
+    "row": 60,
+    "emp": "6424",
+    "name": "KATHY GAMBREL (C-1)",
+    "dept": "Admin",
+    "shop": "Admin",
+    "shift": 1
+  },
+  {
+    "row": 62,
+    "emp": "6447",
+    "name": "EUZABETH CACENES (C-3)",
+    "dept": "Pippin Rd",
+    "shop": "Brakes",
+    "shift": 3
+  },
+  {
+    "row": 63,
+    "emp": "6452",
+    "name": "RONALD MCKENZIE (C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Gen Fab",
+    "shift": 1
+  },
+  {
+    "row": 64,
+    "emp": "6478",
+    "name": "KENNETH COLE (N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 65,
+    "emp": "6497",
+    "name": "CURTIS KING (C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Brakes",
+    "shift": 1
+  },
+  {
+    "row": 66,
+    "emp": "6503",
+    "name": "DWAYNE BELL (N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 67,
+    "emp": "6528",
+    "name": "JESSE AUSTIN (N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 68,
+    "emp": "6530",
+    "name": "ROBERT WILSON (C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Machining",
+    "shift": 1
+  },
+  {
+    "row": 70,
+    "emp": "6536",
+    "name": "JUSTIN KORNHAUS (C-1)",
+    "dept": "Pippin Rd",
+    "shop": "QC",
+    "shift": 1
+  },
+  {
+    "row": 71,
+    "emp": "6537",
+    "name": "JONATHAN BEHRENS (N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 72,
+    "emp": "6540",
+    "name": "ALYSSA MORGAN (N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 73,
+    "emp": "6542",
+    "name": "CHRISTOPHER WILHELM (N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 74,
+    "emp": "6546",
+    "name": "CAMERON KNEPP (N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 75,
+    "emp": "6553",
+    "name": "SAMUEL CARROLL (N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 76,
+    "emp": "6556",
+    "name": "STEVEN PIGMAN (N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 77,
+    "emp": "6560",
+    "name": "MICHAEL BRIDGES (C-3)",
+    "dept": "Pippin Rd",
+    "shop": "Laser",
+    "shift": 3
+  },
+  {
+    "row": 78,
+    "emp": "6564",
+    "name": "SETH PAYNE (N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 79,
+    "emp": "6568",
+    "name": "DEVAN STEDMAN (C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Gen Fab",
+    "shift": 1
+  },
+  {
+    "row": 80,
+    "emp": "6574",
+    "name": "MICHAEL MARTINI (C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Gen Fab",
+    "shift": 1
+  },
+  {
+    "row": 81,
+    "emp": "6576",
+    "name": "NELSON MELENDEZ (N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 83,
+    "emp": "6580",
+    "name": "KALUN LOVELESS (C-3)",
+    "dept": "Pippin Rd",
+    "shop": "Gen Fab",
+    "shift": 3
+  },
+  {
+    "row": 84,
+    "emp": "6582",
+    "name": "BRIAN FORSCHBACH (C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Machining",
+    "shift": 1
+  },
+  {
+    "row": 85,
+    "emp": "6590",
+    "name": "ROBERT WALKER (N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 86,
+    "emp": "6599",
+    "name": "SHANNON CHAMBERS (N-1) EXPRE",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 91,
+    "emp": "6609",
+    "name": "JACOB THIBODAUX (N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 93,
+    "emp": "6612",
+    "name": "JUSTIN SCHWARTZ (N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 94,
+    "emp": "6613",
+    "name": "DANIEL BERTER (N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 95,
+    "emp": "6614",
+    "name": "LAURENCE MATHIS (N-1) KELLYSE",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 96,
+    "emp": "6615",
+    "name": "MARI PATTERSON (N-1)",
+    "dept": "North Facility A Aisle",
+    "shop": "Unassigned",
+    "shift": null
+  },
+  {
+    "row": 97,
+    "emp": "6616",
+    "name": "NAHIANE SALIH (C-3)",
+    "dept": "Pippin Rd",
+    "shop": "Admin",
+    "shift": 3
+  },
+  {
+    "row": 103,
+    "emp": "6120",
+    "name": "SYLVESTER NTIAMOAH (C-3)",
+    "dept": "Pippin Rd",
+    "shop": "Powder",
+    "shift": 3
+  },
+  {
+    "row": 104,
+    "emp": "700",
+    "name": "JOHN SMITH (DUMMY EMP)",
+    "dept": "Pippin Rd",
+    "shop": "Admin",
+    "shift": 1
+  },
+  {
+    "row": 105,
+    "emp": "6134",
+    "name": "BOUBOU DIALLO (C-3)",
+    "dept": "Pippin Rd",
+    "shop": "Powder",
+    "shift": 3
+  },
+  {
+    "row": 109,
+    "emp": "179",
+    "name": "JAMES LOVELL (C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Brakes",
+    "shift": 1
+  },
+  {
+    "row": 110,
+    "emp": "6635",
+    "name": "RANDALL BENNETT (C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Brakes",
+    "shift": 1
+  },
+  {
+    "row": 113,
+    "emp": "6640",
+    "name": "WESLEY WILLIAMS (C-3)",
+    "dept": "Pippin Rd",
+    "shop": "Laser",
+    "shift": 3
+  },
+  {
+    "row": 122,
+    "emp": "6672",
+    "name": "PAUL GOMEZ (C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Powder",
+    "shift": 1
+  },
+  {
+    "row": 129,
+    "emp": "6682",
+    "name": "LUKE YEBOAH (C-3)",
+    "dept": "Pippin Rd",
+    "shop": "Machining",
+    "shift": 3
+  },
+  {
+    "row": 133,
+    "emp": "6690",
+    "name": "JOSEPH ROBINSON (C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Laser",
+    "shift": 1
+  },
+  {
+    "row": 135,
+    "emp": "6692",
+    "name": "RANDALL MASTER (C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Powder",
+    "shift": 1
+  },
+  {
+    "row": 136,
+    "emp": "6693",
+    "name": "GARRETT RENNER (C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Powder",
+    "shift": 1
+  },
+  {
+    "row": 138,
+    "emp": "6694",
+    "name": "MAXWELL WYATT (C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Machining",
+    "shift": 1
+  },
+  {
+    "row": 139,
+    "emp": "6699",
+    "name": "RICHARD ADU-POKU (C-3)",
+    "dept": "Pippin Rd",
+    "shop": "Powder",
+    "shift": 3
+  },
+  {
+    "row": 142,
+    "emp": "6703",
+    "name": "LASHAWN WOODS (C-3)",
+    "dept": "Pippin Rd",
+    "shop": "Machining",
+    "shift": 3
+  },
+  {
+    "row": 144,
+    "emp": "6706",
+    "name": "ROBYN FAIR (C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Shipping",
+    "shift": 1
+  },
+  {
+    "row": 145,
+    "emp": "6710",
+    "name": "JAMES HUFF (C-3) EXPRESS",
+    "dept": "Pippin Rd",
+    "shop": "Gen Fab",
+    "shift": 3
+  },
+  {
+    "row": 146,
+    "emp": "6711",
+    "name": "YAW ASANTE (C-3)",
+    "dept": "Pippin Rd",
+    "shop": "Powder",
+    "shift": 3
+  },
+  {
+    "row": 147,
+    "emp": "6709",
+    "name": "ROSCHEN CAINE (C-1)",
+    "dept": "Pippin Rd",
+    "shop": "Gen Fab",
+    "shift": 1
+  }
+];
 
 // ---------- state ----------
 let currentDate = todayStr();
